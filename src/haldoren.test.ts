@@ -42,7 +42,7 @@ const { computePose, computeFitHero, playbackRateCurve } = extractPureFunctions(
 
 test('index.html is a standalone single-file page with no external framework bundles', () => {
   assert.doesNotMatch(html, /<script[^>]+src=/i, 'No external script src tags should exist');
-  assert.match(html, /<title>Haldoren — Motion Design Portfolio<\/title>/);
+  assert.match(html, /<title>RAJASEKAR M\. — Creative Technologist &amp; AI Developer<\/title>/);
   assert.match(html, /Inter\+Tight:wght@100\.\.900/);
   assert.match(html, /Caveat\+Brush/);
   assert.match(html, /Anton/);
@@ -61,16 +61,17 @@ test('all exact asset URLs and required copy strings are present verbatim', () =
     'vell-lookbook.mp4',
     'vasari-vhs-hero.mp4',
     'living-portrait-hero.mp4',
-    'VELL LOOKBOOK',
-    'VASARI SHELF',
-    'MINA PORTRAIT',
-    'E. HALDOREN',
-    'ART DIRECTOR // DESIGNER',
-    '@HALDOREN.MOTION',
-    'HI@HALDOREN.STUDIO',
+    'RAJASEKAR M.',
+    'creative-technologist',
+    'CREATIVE TECHNOLOGIST',
+    'AI DEVELOPER',
+    'TAMIL NADU, INDIA',
+    'GITHUB.COM/RAJTECH01',
+    'ADAPTIVE ZERO TRUST IAM',
+    'AUTONOMOUS AI CODING AGENT',
+    'NOVA STORE',
     'scroll into the work',
-    'motion-design',
-    'my studio',
+    'about',
     'portfolio',
     'contacts',
     'discuss a project',
@@ -78,6 +79,7 @@ test('all exact asset URLs and required copy strings are present verbatim', () =
   for (const needle of required) {
     assert.ok(html.includes(needle), `Missing required string: ${needle}`);
   }
+  assert.doesNotMatch(html, /haldoren/i, 'No Haldoren branding should remain in index.html');
 });
 
 test('desktop hero pose covers 1440x900 and anchors top', () => {
